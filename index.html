@@ -2,11 +2,29 @@
 <html>
   <head>
     <title>counter</title>
+    <link href="emoji.css" rel="stylesheet" type="text/css" />
     <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="emoji.js"></script>
     <script>
+
+function createView(){
+  var style = {
+    width:300,
+    height:100
+  }
+  $("#input").css(style);
+  $("#emoji").css(style);
+}
+
 $(function(){
-  $("#input").keyup(function(){
+  createView();
+  var emoji = new EmojiConvertor();
+  $("#input").keyup(function(){    
     $("#counter").text($("#input").val().length);
+
+    $("#emoji").html(emoji.replace_colons($("#input").val()));
+
+    return false;
   });
 });      
     </script>      
@@ -14,5 +32,7 @@ $(function(){
   <body>
     <div>counter: <span id="counter"></span></div>
     <textarea id="input"></textarea>
+    <div>converter</div>
+    <div id="emoji"></div>
   </body>
 </html>
