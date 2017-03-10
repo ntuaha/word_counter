@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>counter</title>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+$(function(){
+  $("#input").keypress(function(){
+    $("#counter").text($("#input").val().length);
+  });
+});      
+    </script>      
+  </head>
+  <body>
+    <div>counter: <span id="counter"></span></div>
+    <textarea id="input"></textarea>
+  </body>
+</html>
