@@ -19,9 +19,10 @@ function createView(){
 $(function(){
   createView();
   var emoji = new EmojiConvertor();
+  emoji.img_sets.apple.path = 'https://github.com/iamcal/js-emoji/tree/master/build';
   $("#input").keyup(function(){    
     $("#counter").text($("#input").val().length);
-
+    
     $("#emoji").html(emoji.replace_colons($("#input").val()));
 
     return false;
